@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="dog" class="com.kuang.pojo01.Dog"/>
+    <bean id="cat" class="com.kuang.pojo01.Cat"/>
+
+<!--    autowire byName (按名称自动装配)-->
+
+<!--    由于在手动配置xml过程中，常常发生字母缺漏和大小写等错误，而无法对其进行检查，使得开发效率降低。-->
+
+<!--    采用自动装配将避免这些错误，并且使配置简单化。-->
+
+<!--    修改bean配置，增加一个属性 autowire=“byName”-->
+
+<!--    如果我们将 cat 的bean id修改为 catXXX-->
+
+<!--    再次测试， 执行时报空指针java.lang.NullPointerException。-->
+<!--    因为按byName规则找不到对应set方法，真正的setCat就没执行，对象就没有初始化，所以调用时就会报空指针错误。-->
+
+    <bean id="user" class="com.kuang.pojo01.User" autowire="byName">
+<!--        <property name="cat" ref="cat"/>-->
+<!--        <property name="dog" ref="dog"/>-->
+        <property name="str" value="qinjiang"/>
+    </bean>
+
+<!--    小结：-->
+
+<!--    当一个bean节点带有 autowire byName的属性时。-->
+
+<!--    将查找其类中所有的set方法名，例如setCat，获得将set去掉并且首字母小写的字符串，即cat。-->
+
+<!--    去spring容器中寻找是否有此字符串名称id的对象。-->
+
+<!--    如果有，就取出注入；如果没有，就报空指针异常。-->
+</beans>
