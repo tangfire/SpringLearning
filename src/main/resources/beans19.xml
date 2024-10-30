@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--注册bean-->
+    <bean id="userService" class="com.kuang.pojo09.UserServiceImpl"/>
+
+<!--第二种方式自定义实现-->
+<!--注册bean-->
+<bean id="diy" class="com.kuang.pojo09.DiyPointcut"/>
+
+        <!--aop的配置-->
+<aop:config>
+<!--第二种方式：使用AOP的标签实现-->
+<aop:aspect ref="diy">
+    <aop:pointcut id="diyPonitcut" expression="execution(* com.kuang.pojo09.UserServiceImpl.*(..))"/>
+    <aop:before pointcut-ref="diyPonitcut" method="before"/>
+    <aop:after pointcut-ref="diyPonitcut" method="after"/>
+</aop:aspect>
+</aop:config>
+
+</beans>

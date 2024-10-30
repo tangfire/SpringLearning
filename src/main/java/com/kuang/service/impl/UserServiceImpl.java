@@ -9,6 +9,7 @@ public class UserServiceImpl implements UserService {
 
     // 利用set实现
     public void setUserDao(UserDao userDao) {
+
         this.userDao = userDao;
     }
 
@@ -16,4 +17,6 @@ public class UserServiceImpl implements UserService {
    public void getUser() {
        userDao.getUser();
   }
+
+
 }

@@ -1,6 +1,7 @@
 import com.kuang.conf.MyConfig;
 import com.kuang.pojo04.User;
 import com.kuang.pojo05.Dog;
+import com.kuang.pojo08.UserService;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -17,11 +18,12 @@ public class MyTest04 {
 
     @Test
     public void test18(){
-        ApplicationContext applicationContext =
-                new AnnotationConfigApplicationContext(MyConfig.class);
-        Dog dog = (Dog) applicationContext.getBean("dog");
-        System.out.println(dog.name);
+        ApplicationContext context = new ClassPathXmlApplicationContext("beans18.xml");
+        UserService userService = (UserService) context.getBean("userService");
+        userService.search();
     }
+
+
 
 
 }
