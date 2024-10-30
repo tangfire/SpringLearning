@@ -5,6 +5,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+<!--    P命名空间注入 : 需要在头文件中加入约束文件-->
     <!--P(属性: properties)命名空间 , 直接注入属性-->
     <bean id="user" class="com.kuang.pojo.User" p:name="狂神" p:age="18"/>
 

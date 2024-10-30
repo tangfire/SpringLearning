@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="dog" class="com.kuang.pojo01.Dog"/>
+    <bean id="cat" class="com.kuang.pojo01.Cat"/>
+<!--    使用autowire byType首先需要保证：同一类型的对象，在spring容器中唯一。如果不唯一，会报不唯一的异常。-->
+
+<!--    将下面的加入，运行test13就会报错，原因是:使用autowire byType首先需要保证：-->
+<!--    同一类型的对象，在spring容器中唯一。如果不唯一，会报不唯一的异常。-->
+<!--    <bean id="cat2" class="com.kuang.pojo01.Cat"/>-->
+
+
+    <bean id="user" class="com.kuang.pojo01.User" autowire="byType">
+<!--        <property name="cat" ref="cat"/>-->
+<!--        <property name="dog" ref="dog"/>-->
+        <property name="str" value="qinjiang"/>
+    </bean>
+
+</beans>
