@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.kuang.dao.UserMapper">
+<mapper namespace="com.kuang.mapper.UserMapper">
 
-    <select id="selectUser" resultType="User">
+    <select id="selectUser" resultType="com.kuang.pojo11.User">
         select * from user
     </select>
 
