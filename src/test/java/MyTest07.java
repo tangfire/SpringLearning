@@ -1,5 +1,6 @@
 import com.kuang.mapper.UserMapper;
 import com.kuang.pojo11.User;
+import com.kuang.utils.MybatisUtils;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -15,18 +16,11 @@ import java.util.List;
 
 public class MyTest07 {
 
-    private SqlSessionFactory sqlSessionFactory;
-
-    @Before
-    public void init() throws IOException {
-        InputStream resourceAsStream = Resources.getResourceAsStream("mybatis-config.xml");
-        sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
-    }
 
     @Test
     public void selectUser() throws IOException {
 
-        SqlSession sqlSession = sqlSessionFactory.openSession();
+        SqlSession sqlSession = MybatisUtils.getSqlSession();
 
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
 
